@@ -4,12 +4,11 @@ import React, { useState } from 'react';
 import '../components/Convertor.css'
 
 const Convector = () => {
-  const [input, setInput] = useState([])
-  const [converted, setConverted] = useState([])
-  const correctObjExample = { "a": "1", "b": true, "c": [1, 2, 3], "d": "https://gist.github.com/" }
+  const [input, setInput] = useState([]);
+  const [converted, setConverted] = useState([]);
   const regExpUrl = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
   const regExpUuid = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/;
-  const regExpIp = /^(\b25[0-6]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  const regExpIp = /^(\b25[0-6]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/;
   const regExpDate = /^(0?[1-9]|1[0-2])\/?:?(0?[1-9]|1\d|2\d|3[01])\/?:?(19|2[0-9]|3[0-9])\d{2}$/;
   const LongPhoneNumber = /^\+?[0-9][0-9]\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})$/;
   const shortPhoneNumber = /^\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})$/;
@@ -20,6 +19,7 @@ const Convector = () => {
 
   const handleConvert = (obj) => {
     const resultObj = {};
+    let resultArray = [];
 
     for (let key in obj) {
       if (typeof (obj[key]) === 'object') resultObj[key] = 'object';
@@ -37,7 +37,6 @@ const Convector = () => {
         else if (regExpZip.test(obj[key])) {
           resultObj[key] = 'zip (postal code)'
         } else if (typeof (obj[key]) !== 'boolean' && typeof (obj[key]) !== 'object') {
-          debugger
           resultObj[key] = 'integer'
         };
       } else if (typeof (obj[key]) !== 'boolean' && typeof (obj[key]) !== 'object' && !Array.isArray(obj[key]) && typeof (obj[key]) !== 'number') {
@@ -72,7 +71,7 @@ const Convector = () => {
         resultObj[key] = 'undefined'
       };
     };
-    const resultArray = Object.entries(resultObj);
+    resultArray = Object.entries(resultObj);
     setConverted(resultArray);
   };
 
@@ -88,8 +87,7 @@ const Convector = () => {
             setInput(Object.entries(baseObj));
           } catch {
             alert(
-              `Sorry, but your object has incorrect structure.\nPlease, check your object.\n 
-              Example of correct object:\n${JSON.stringify(correctObjExample, null, 2)}`
+              `Sorry, but your object has incorrect structure.\nPlease, check your object.`
             )
           }
           handleConvert(baseObj);
@@ -114,9 +112,9 @@ const Convector = () => {
         <div className='curly_brackets'>&#123;</div>
         <div className='inner_block'>
           {
-            input.map(el => {
+            input.map((el, index) => {
               return (
-                <div >
+                <div key={index}>
                   {`"${el[0]}"`} : {JSON.stringify(el[1])},
                 </div>
               )
@@ -129,11 +127,11 @@ const Convector = () => {
       <div className='converted_object'>
         <span>Converted Object:</span>
         <div className='curly_brackets'>&#123;</div>
-        <div>
+        <div className='inner_block'>
           {
-            converted.map(el => {
+            converted.map((el, index) => {
               return (
-                <div className='inner_block'>
+                <div key={index}>
                   {`"${el[0]}"`} : {`"${el[1]}"`}
                 </div>
               )

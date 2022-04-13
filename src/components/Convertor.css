@@ -4,6 +4,7 @@ body,
 .App,
 .container {
     height: 100%;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -36,6 +37,7 @@ span {
 }
 
 h1 {
+    text-transform: uppercase;
     color: #00008b;
 }
 
