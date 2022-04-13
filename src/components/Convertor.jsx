@@ -36,7 +36,8 @@ const Convector = () => {
         }
         else if (regExpZip.test(obj[key])) {
           resultObj[key] = 'zip (postal code)'
-        } else if (typeof (obj[key]) !== 'boolean') {
+        } else if (typeof (obj[key]) !== 'boolean' && typeof (obj[key]) !== 'object') {
+          debugger
           resultObj[key] = 'integer'
         };
       } else if (typeof (obj[key]) !== 'boolean' && typeof (obj[key]) !== 'object' && !Array.isArray(obj[key]) && typeof (obj[key]) !== 'number') {
