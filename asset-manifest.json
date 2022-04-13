@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/json-convertor/static/css/main.e182df8c.css",
+    "main.js": "/json-convertor/static/js/main.bfecbe70.js",
+    "index.html": "/json-convertor/index.html",
+    "main.e182df8c.css.map": "/json-convertor/static/css/main.e182df8c.css.map",
+    "main.bfecbe70.js.map": "/json-convertor/static/js/main.bfecbe70.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e182df8c.css",
+    "static/js/main.bfecbe70.js"
+  ]
+}
