@@ -1,0 +1,83 @@
+html,
+body,
+#root,
+.App,
+.container {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    background-color: #93CAED;
+
+}
+
+.converted_object {
+    border: 2px solid #00008b;
+    border-radius: 5px;
+    width: fit-content;
+    width: 50%;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+span {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+h1 {
+    color: #00008b;
+}
+
+form {
+    width: 50%;
+}
+
+input {
+    width: 60%;
+    padding: 10px 0;
+    padding-left: 5px;
+    border-radius: 5px;
+    border-color: #00008b;
+}
+
+input:focus {
+    outline-color: #00008b;
+}
+
+.btn {
+    height: 100%;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 139);
+    color: #FFF;
+    font-size: 1.1rem;
+    margin-left: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.curly_brackets {
+    color: #00008b;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.inner_block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+    color: #00008b;
+}
